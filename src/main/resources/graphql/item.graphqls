@@ -1,0 +1,20 @@
+type Item {
+    id: ID!
+    name: String!
+    category: String!
+    quantity: Int!
+    price: Float!
+    user: User
+}
+
+extend type Query {
+    findAllItems: [Item]!
+    countItems: Int!
+    getItemById(id: ID!) : Item!
+}
+
+extend type Mutation {
+    newItem(name: String!, category: String!, quantity: Int!, price: Float!, user: ID!) : Item!
+    deleteItem(id: ID!) : Boolean
+    updateItemPrice(price: Float!, id: ID!) : Item!
+}
